@@ -25,8 +25,9 @@ For our language identification problem, we will be using character 3-grams/trig
 3.Create a feature matrix, by counting the number of times each trigram occurs in each sentence
 
 We can see an example of such a feature matrix in Table 2. The top row gives each of the 663 trigrams. Then each of the numbered rows gives one of the sentences in our dataset. The numbers within the matrix give the number of times that trigram occurs within the sentence. For example, “j’a” occurs once in sentence 2.
-|ach  |abe  |      j'a      |   ux | ion | en, | est | aun | ...|  
-| ----------| -------- | ------------------------------------------------- |
+
+|ach  |abe  |  j'a |   ux | ion | en, | est | aun | ...|  
+| ---- |----| -----|------|---- |-----|-----|-----|----|
 |0 | 0 | 0 | 0 | 0 | 0 | 0| 0 | ... |
 |0 | 0 | 0 | 0 | 0 | 0 | 0| 0 | ... |
 |0 | 0 | 1 | 0 | 0 | 0 | 0| 0 | ... |
