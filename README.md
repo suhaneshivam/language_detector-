@@ -38,6 +38,9 @@ We can see an example of such a feature matrix in Table 2. The top row gives eac
 |0 | 0 | 0 | 0 | 0 | 0 | 0| 2 | ... |
 |... | ... | .. | ... | ... | ... | ...| ... | ... |
 
+**Exploring Trigrams**
+
+![Trigrams](/images/trigram.png)
 
 
 
