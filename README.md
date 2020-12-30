@@ -10,7 +10,7 @@ There are several different approaches to language identification and, in this a
 
 ## Dataset
 
-The dataset is provided by Tatoeba. The full dataset consists of 6,872,356 sentences in 328 unique languages. To simplify our problem we will consider:
+The dataset is provided by [Tatoeba](https://downloads.tatoeba.org/exports/). The full dataset consists of 6,872,356 sentences in 328 unique languages. To simplify our problem we will consider:
 6 Latin languages: English, German, Spanish, French, Portuguese and Italian.
 Sentences between 20 and 200 characters long.
 
