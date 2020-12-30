@@ -14,10 +14,12 @@ We can see an example of a sentence from each language in Table 1. Our objective
 | Portuguese| por      | Cante-me uma canção de ninar.                     |
 | Spanish   | spa      | El surgimiento del exoesqueleto en los artrópodos  fue un acontecimiento evolutivo muy importante para esos animales |
 
-##Data processing
+###Data processing
+
 We load the dataset and do some initial processing in the code below. We first filter the dataset to get sentences of the desired length and language. We randomly select 50,000 sentences from each of these languages so that we have 300,000 rows in total. These sentences are then split into a training (70%), validation (20%) and test (10%) set.
 
-##Feature Engineering
+####Feature Engineering
+
 For our language identification problem, we will be using character 3-grams/trigrams (i.e. sets of 3 consecutive characters). In Figure 2, we see an example of how sentences can be vectorised using trigrams. Firstly, we get all the trigrams from the sentences. To reduce the feature space, we take a subset of these trigrams. We use this subset to vectorise the sentences. The vector for the first sentence is [2,0,1,0,0] as the trigram ‘is_’ occurs twice and ‘his’ occurs once in the sentence.
 
 1.Using the training set, we select the 200 most common trigrams from each language
