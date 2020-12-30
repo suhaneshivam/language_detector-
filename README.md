@@ -1,4 +1,11 @@
 # Deep Neural Network Language Identification
+
+Language identification can be an important step in a Natural Language Processing (NLP) problem. It involves trying to predict the natural language of a piece of text. It is important to know the language of text before other actions (i.e. translation/ sentiment analysis) can be taken. For instance, if you go to google translate the box you type in says ‘Detect Language’. This is because Google is first trying to identify the language of your sentence before it can be translated.
+
+![animation](/images/animation.gif)
+
+
+
 ## Dataset
 
 The dataset is provided by Tatoeba. The full dataset consists of 6,872,356 sentences in 328 unique languages. To simplify our problem we will consider:
