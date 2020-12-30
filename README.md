@@ -40,6 +40,10 @@ We can see an example of such a feature matrix in Table 2. The top row gives eac
 
 **Exploring Trigrams**
 
+We now have the datasets in a form ready to be used to train our Neural Network. Before we do that, it would be useful to explore the dataset and build up a bit of an intuition around how well these features will do at predicting the languages. Figure 2 gives the number of trigrams each language has in common with the others. For example, English and German have 55 of their most common trigrams in common.
+With 127, we see that Spanish and Portuguese have the most trigrams in common. This makes sense as, among all the languages, these two are the most lexically similar. What this means is that, using these features, our model may find it difficult to distinguish Spanish from Portuguese and visa versa. Similarly, Portuguese and German have the least trigrams in common and we could expect our model to be better at distinguishing these languages.
+
+
 ![Trigrams](/images/trigram.png)
 
 
