@@ -4,6 +4,8 @@ Language identification can be an important step in a Natural Language Processin
 
 ![animation](/images/animation.gif)
 
+There are several different approaches to language identification and, in this article, we’ll explore one in detail. That is using a Neural Network and character n-grams as features. In the end, we show that an accuracy of over 98% can be achieved with this approach.Firstly, we’ll discuss the dataset that we’ll use to train our Neural Network.
+
 
 
 ## Dataset
