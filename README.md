@@ -43,9 +43,44 @@ We can see an example of such a feature matrix in Table 2. The top row gives eac
 We now have the datasets in a form ready to be used to train our Neural Network. Before we do that, it would be useful to explore the dataset and build up a bit of an intuition around how well these features will do at predicting the languages. Figure 2 gives the number of trigrams each language has in common with the others. For example, English and German have 55 of their most common trigrams in common.
 With 127, we see that Spanish and Portuguese have the most trigrams in common. This makes sense as, among all the languages, these two are the most lexically similar. What this means is that, using these features, our model may find it difficult to distinguish Spanish from Portuguese and visa versa. Similarly, Portuguese and German have the least trigrams in common and we could expect our model to be better at distinguishing these languages.
 
-
 ![Trigrams](/images/trigram.png)
 
+**Modelling**
 
+We use the keras package to train our DNN. A softmax activation function is used in the model’s output layer. This means we have to transform our list of target variables into a list of one-hot encodings. This is done using the encode function below. This function takes a list of target variables and returns a list of one-hot encoded vectors. For example, [eng,por,por, fra,…] would become [[0,1,0,0,0,0],[0,0,0,0,1,0],[0,0,0,0,1,0],[0,0,1,0,0,0],…].
+
+We use the keras package to train our DNN. A softmax activation function is used in the model’s output layer. This means we have to transform our list of target variables into a list of one-hot encodings. This is done using the encode function below. This function takes a list of target variables and returns a list of one-hot encoded vectors. For example, [eng,por,por, fra,…] would become [[0,1,0,0,0,0],[0,0,0,0,1,0],[0,0,0,0,1,0],[0,0,1,0,0,0],…].
+
+```python
+from sklearn.preprocessing import LabelEncoder
+from keras.utils import np_utils
+
+#Fit encoder
+encoder = LabelEncoder()
+encoder.fit(['deu', 'eng', 'fra', 'ita', 'por', 'spa'])
+
+def encode(y):
+    """
+    Returns a list of one hot encodings
+    Params
+    ---------
+        y: list of language labels
+    """
+    
+    y_encoded = encoder.transform(y)
+    y_dummy = np_utils.to_categorical(y_encoded)
+    
+    return y_dummy
+}
+```
+The final model has 3 hidden layers with 500, 500 and 250 nodes respectfully. The output layer has 6 nodes, one for each language. The hidden layers all have ReLU activation functions and, as mentioned, the output layer has a softmax activation function. We train this model using 4 epochs and a batch size of 100. Using our training set and one-hot encoded target variable list, we train this DDN in the code below. In the end, we achieve a training accuracy of 99.70%.
+
+
+**Model evaluation**
+
+During the model training process, the model can become biased towards the training set as well as the validation set. So it is best to determine the model accuracy on an unseen test set. The final accuracy on the test set was 98.26%. This is lower than the training accuracy of 99.70% suggesting that some overfitting to the training set has occurred.
+We can get a better idea of how well the model does for each language by looking at the confusion matrix in Figure . The red diagonal gives the number of correct predictions for each language. The off-diagonal numbers give the number of times a language was incorrectly predicted as another. For example, German is incorrectly predicted as English 10 times. We see that the model most often confuses either Portuguese for Spanish (124 times) or Spanish for Portuguese (61 times). This follows from what we saw when exploring our features.
+
+![Confusion matrix](/images/confusion.png)
 
 
