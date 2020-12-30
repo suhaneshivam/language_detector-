@@ -83,4 +83,6 @@ We can get a better idea of how well the model does for each language by looking
 
 ![Confusion matrix](/images/confusion.png)
 
+In the end, the test accuracy of 98.26% leaves room for improvement. In terms of feature selection, we have kept things simple and have just selected the 200 most common trigrams for each language. A more complicated approach could help us differentiate the languages that are more similar. For example, we could select trigrams that are common in Spanish but not so common in Portuguese and visa versa. We could also experiment with different models. Hopefully, this is a good starting point for your language identification experiments.
+
 
